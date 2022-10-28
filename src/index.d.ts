@@ -4,7 +4,14 @@
 - age - число
 - gender - 'male' или 'female'
  */
-export function getPersons();
+type Tmass = {
+  name:string;
+  age: number;
+  gender: 'male' | 'female';
+};
+
+type Tmasses = Tmass[];
+export function getPersons():Tmasses;
 
 /*
 Типизируйте функцию personToString, возвращающую строку и принимающую объект одного из следующих форматов:
@@ -18,4 +25,6 @@ export function getPersons();
    - gender - 'male' или 'female'
    - company- строка
  */
-export function personToString(person);
+type TmasComp = Tmass & {company:string};
+type Tpearson = Tmass | TmasComp;
+export function personToString(person: Tpearson):string;
